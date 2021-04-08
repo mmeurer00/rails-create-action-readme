@@ -40,3 +40,59 @@ Processing by PostsController#show as HTML
   [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
   Rendered posts/show.html.erb within layouts/application (0.4ms)
 Completed 200 OK in 27ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Title Goes Here"], ["description", "Desc goes here..."], ["created_at", "2021-04-08 17:15:22.796980"], ["updated_at", "2021-04-08 17:15:22.796980"]]
+  [1m[35m (7.6ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for ::1 at 2021-04-08 13:28:05 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/maxine1/.rvm/gems/ruby-2.6.1/gems/railties-5.0.7.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/maxine1/.rvm/gems/ruby-2.6.1/gems/railties-5.0.7.2/lib/rails/templates/rails/welcome/index.html.erb (12.2ms)
+Completed 200 OK in 45ms (Views: 26.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2021-04-08 13:28:12 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 538ms (Views: 512.7ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/posts" for ::1 at 2021-04-08 13:28:20 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8O5DbcGFjii9UW7suVfWwSKsw0/T1ygic2Y3ETetCoAc0DveW4gkt8976XftbP17qFAny/WYRXdGnA3MLS2cyQ==", "title"=>"Fullstack Engineer ", "description"=>"yo", "commit"=>"Submit Post"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (11.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Fullstack Engineer "], ["description", "yo"], ["created_at", "2021-04-08 17:28:20.737605"], ["updated_at", "2021-04-08 17:28:20.737605"]]
+  [1m[35m (5.5ms)[0m  [1m[36mcommit transaction[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 70ms (ActiveRecord: 17.3ms)
+
+
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/posts/new" for ::1 at 2021-04-08 13:30:37 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 81ms (Views: 61.2ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/posts" for ::1 at 2021-04-08 13:30:44 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FWDvPfMedrKx9N2XRNmUBZi4kaBM/g99qX/6gqs5KoX5XpeOaRPcLcPeWgwQ4r+/EkR1JGqxYiichcBfsbm8zA==", "title"=>"Fullstack Engineer 2", "description"=>"hi", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Fullstack Engineer 2"], ["description", "hi"], ["created_at", "2021-04-08 17:30:44.368975"], ["updated_at", "2021-04-08 17:30:44.368975"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 14ms (ActiveRecord: 6.7ms)
+
+
+Started GET "/posts/4" for ::1 at 2021-04-08 13:30:44 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 81ms (Views: 64.1ms | ActiveRecord: 0.8ms)
+
+
